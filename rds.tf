@@ -7,6 +7,6 @@ resource "aws_db_instance" "sathya_rds" {
   username             = "lab-user"
   password             = "labuseradmin"
   parameter_group_name = "default.mysql5.7"
-  vpc_security_group_ids = [aws_security_group.sathya_rds.id]
-  db_subnet_group_name = data.aws_subnet.data.id
+  vpc_security_group_ids = [aws_security_group.rds_security.id]
+  db_subnet_group_name = data.aws_db_subnet_group.subnet_group.id
 }

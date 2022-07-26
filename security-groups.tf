@@ -1,5 +1,5 @@
-resource "aws_security_group" "sathya_rds" {
-  name        = "rds-instance"
+resource "aws_security_group" "rds_security" {
+  name        = "rds-security"
   description = "Allow rds instance inbound traffic"
   vpc_id      = data.aws_vpc.talent_academy.id
 
