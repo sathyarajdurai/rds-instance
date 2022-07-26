@@ -1,11 +1,3 @@
-# resource "aws_vpc" "rds_vpc" {
-#   cidr_block = "10.10.0.0/16"
-#   instance_tenancy = "default"
-
-#   tags = {
-#     Name = "rds-vpc"
-#   }
-# }
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = "subnet-rds"

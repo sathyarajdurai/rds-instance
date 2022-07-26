@@ -7,8 +7,8 @@ resource "aws_security_group" "rds_security" {
     description      = "Allow port 3306"
     from_port        = 3306
     to_port          = 3306
-    protocol         = "mysql"
-    cidr_blocks      = ["192.168.0.107/32"]
+    protocol         = "tcp"
+    cidr_blocks      = ["192.168.1.0/24"]
   }
 
   egress {
