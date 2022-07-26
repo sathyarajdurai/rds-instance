@@ -1,7 +1,7 @@
-data "aws_vpc" "talent_academy" {  
+data "aws_subnet" "private" {  
   filter {
     name   = "tag:Name"
-    values = ["lab-vpc"]
+    values = ["private"]
   }
 }
 
@@ -12,7 +12,9 @@ data "aws_subnet" "data" {
   }
 }
 
-data "aws_db_subnet_group" "subnet_group" {
-  name = "tag:My DB subnet group"
-  subnet_ids = [aws_subnet.data.id]
+data "aws_vpc" "talent_academy" {  
+  filter {
+    name   = "tag:Name"
+    values = ["lab-vpc"]
+  }
 }
