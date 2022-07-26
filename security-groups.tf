@@ -4,10 +4,10 @@ resource "aws_security_group" "rds_security" {
   vpc_id      = data.aws_vpc.talent_academy.id
 
   ingress {
-    description      = "Allow port 1433"
-    from_port        = 1433
-    to_port          = 1433
-    protocol         = "tcp"
+    description      = "Allow port 3306"
+    from_port        = 3306
+    to_port          = 3306
+    protocol         = "mysql"
     cidr_blocks      = ["192.168.0.107/32"]
   }
 
