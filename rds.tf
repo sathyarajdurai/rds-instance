@@ -1,7 +1,7 @@
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = "subnet-rds"
-  subnet_ids = [data.aws_subnet.private.id, data.aws_subnet.data.id]
+  subnet_ids = [data.aws_subnet.data-a.id, data.aws_subnet.data-b.id]
 
   tags = {
     Name = "rds group"
@@ -18,6 +18,7 @@ resource "aws_db_instance" "sathya_rds" {
   username             = var.db_username
   password             = var.db_password
   vpc_security_group_ids = [aws_security_group.rds_security.id]
-  db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.id
+  multi_az = true
+  db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.name
   skip_final_snapshot  = true
 }
